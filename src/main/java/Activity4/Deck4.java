@@ -1,5 +1,8 @@
 package Activity4;
 import java.util.List;
+
+import Activity3.Shuffler3;
+
 import java.util.ArrayList;
 
 /**
@@ -64,7 +67,16 @@ public class Deck4 {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-		this.size = 0; // remove me
+		for(int i = cards.size()-1;i>0;i--)
+		{
+			int pos = (int) (Math.random()*(i+1));
+			Card4 temp = cards.get(pos);
+			cards.set(pos, cards.get(i));
+			cards.set(i, temp);
+		}
+		
+			//values[i]=temp;
+		
 	}
 
 	/**

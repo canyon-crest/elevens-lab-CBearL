@@ -8,7 +8,7 @@ public class Shuffler3 {
 	 * The number of consecutive shuffle steps to be performed in each call
 	 * to each sorting procedure.
 	 */
-	private static final int SHUFFLE_COUNT = 1;
+	private static final int SHUFFLE_COUNT = 5;
 
 
 	/**
@@ -52,6 +52,28 @@ public class Shuffler3 {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] temp = new int[values.length];
+		int m = (values.length+1)/2;
+		
+		int unShuffPos =0;
+		int pos=0;
+		
+		for( ; pos<m;pos++)
+		{
+			temp[unShuffPos] = values[pos];
+			unShuffPos +=2;
+		}
+		unShuffPos = 1;
+		for( ; pos<values.length;pos++)
+		{
+			temp[unShuffPos] = values[pos];
+			unShuffPos+=2;
+		}
+		
+		for(pos =0;pos<values.length;pos++)
+		{
+			values[pos]=temp[pos];
+		}
 	}
 
 	/**
@@ -67,5 +89,12 @@ public class Shuffler3 {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		for(int i = values.length-1;i>0;i--)
+		{
+			int pos = (int) (Math.random()*(i+1));
+			int temp = values[pos];
+			values[pos] = values[i];
+			values[i]=temp;
+		}
 	}
 }
