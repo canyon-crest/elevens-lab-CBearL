@@ -66,7 +66,7 @@ public class Card1 {
 	 */
 	public int pointValue() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-		return -1;
+		return pointValue;
 
 	}
 

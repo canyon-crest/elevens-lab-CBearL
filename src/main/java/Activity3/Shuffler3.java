@@ -1,3 +1,4 @@
+
 package Activity3;
 /**
  * This class provides a convenient way to test shuffling methods.
@@ -97,4 +98,60 @@ public class Shuffler3 {
 			values[i]=temp;
 		}
 	}
+	public static String flip()
+	{
+	    if(Math.random()<2.0/3.0)
+	    {
+	         return "heads";
+	    }
+	    else
+	    {
+	        return "tails";
+	    }
+	}
+	public static boolean arePermutations(int[] a, int[]b)
+	{
+		 if (a.length != b.length) {
+		        return false;
+		    }
+
+	
+		    for (int i = 0; i < a.length - 1; i++) {
+		        int minIndex = i;
+		        for (int j = i + 1; j < a.length; j++) {
+		            if (a[j] < a[minIndex]) {
+		                minIndex = j;
+		            }
+		        }
+		        int temp = a[i];
+		        a[i] = a[minIndex];
+		        a[minIndex] = temp;
+		    }
+
+	
+		    for (int i = 0; i < b.length - 1; i++) {
+		        int minIndex = i;
+		        for (int j = i + 1; j < b.length; j++) {
+		            if (b[j] < b[minIndex]) {
+		                minIndex = j;
+		            }
+		        }
+		        int temp = b[i];
+		        b[i] = b[minIndex];
+		        b[minIndex] = temp;
+		    }
+
+		    for (int i = 0; i < a.length; i++) {
+		        if (a[i] != b[i]) {
+		            return false;
+		        }
+		    }
+
+		    return true;
+
+	}
+
+	
+
+	
 }
