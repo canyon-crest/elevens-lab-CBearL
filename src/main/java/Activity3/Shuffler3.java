@@ -53,28 +53,25 @@ public class Shuffler3 {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-		int[] temp = new int[values.length];
-		int m = (values.length+1)/2;
 		
-		int unShuffPos =0;
-		int pos=0;
+		int mid = (values.length/2);
+		int[] newArr = new int[values.length];
+		int index =0;
 		
-		for( ; pos<m;pos++)
+		for(int i=0;i<mid;i++)
 		{
-			temp[unShuffPos] = values[pos];
-			unShuffPos +=2;
+			newArr[index]=values[i];
+			index++;
+			newArr[index]=values[mid+i];
+			index++;
 		}
-		unShuffPos = 1;
-		for( ; pos<values.length;pos++)
+		for(int i=0;i<values.length;i++)
 		{
-			temp[unShuffPos] = values[pos];
-			unShuffPos+=2;
+			values[i]=newArr[i];
 		}
 		
-		for(pos =0;pos<values.length;pos++)
-		{
-			values[pos]=temp[pos];
-		}
+		
+	
 	}
 
 	/**
@@ -115,7 +112,7 @@ public class Shuffler3 {
 		        return false;
 		    }
 
-	
+//first I sorted through both the arrays using selection sort	
 		    for (int i = 0; i < a.length - 1; i++) {
 		        int minIndex = i;
 		        for (int j = i + 1; j < a.length; j++) {
@@ -128,7 +125,7 @@ public class Shuffler3 {
 		        a[minIndex] = temp;
 		    }
 
-	
+	//sorted through second array
 		    for (int i = 0; i < b.length - 1; i++) {
 		        int minIndex = i;
 		        for (int j = i + 1; j < b.length; j++) {
@@ -140,7 +137,7 @@ public class Shuffler3 {
 		        b[i] = b[minIndex];
 		        b[minIndex] = temp;
 		    }
-
+//compared the elements in the two arrays
 		    for (int i = 0; i < a.length; i++) {
 		        if (a[i] != b[i]) {
 		            return false;

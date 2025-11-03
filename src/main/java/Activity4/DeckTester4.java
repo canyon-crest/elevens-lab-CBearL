@@ -21,6 +21,8 @@ public class DeckTester4 {
 		System.out.println();
 		System.out.println();
 
+		
+		
 		System.out.println("**** Deal a Card ****");
 		System.out.println("  deal: " + d.deal());
 		System.out.println();
@@ -53,5 +55,20 @@ public class DeckTester4 {
 		System.out.println();
 
 		/* *** TO BE COMPLETED IN ACTIVITY 4 *** */
+		
+		String[] rank = {"ace", "10", "king"};
+		String[] suit = {"spade", "clubs"};
+		int[] pointValue = {1, 10, 13};
+		Deck4 d2 = new Deck4(rank, suit, pointValue);
+		
+		System.out.println(d2.toString());
+		d2.shuffle();
+		System.out.println(d2.toString());
+		d2.shuffle();
+		System.out.println(d2.toString());
+		
+
+		
+		
 	}
 }

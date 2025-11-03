@@ -80,7 +80,10 @@ public class Card1 {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
 		if(rank.equals(otherCard.rank) && suit.equals(otherCard.suit))
 			{
+			if(pointValue == otherCard.pointValue)
+			{
 			return true;
+			}
 			}
 		
 		return false;

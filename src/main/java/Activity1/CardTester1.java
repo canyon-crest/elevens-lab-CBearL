@@ -14,6 +14,9 @@ public class CardTester1 {
 		Card1 cardss = new Card1("King","Hearts",13);
 		Card1 cardsss = new Card1("Jack","Clubs",11);
 		System.out.println(cards.toString());
+		System.out.println(cardss.toString());
+		System.out.println(cardsss.toString());
 		System.out.println(cards.matches(cardss));
+		System.out.println(cardss.matches(cardsss));
 	}
 }

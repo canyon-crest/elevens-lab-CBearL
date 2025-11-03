@@ -1,5 +1,8 @@
 package Activity2;
 import java.util.List;
+
+import Activity4.Card4;
+
 import java.util.ArrayList;
 
 /**
@@ -37,7 +40,7 @@ public class Deck2 {
 		{		
 			for(int j=0;j<ranks.length;j++)
 			{
-			cards.add(new Card2(ranks[j],suits[i],values[j]));
+				cards.add(new Card2(ranks[j],suits[i],values[j]));
 			}
 		}
 		size = cards.size();
@@ -51,7 +54,7 @@ public class Deck2 {
 	 */
 	public boolean isEmpty() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		return cards.size()==0;
+		return size==0;
 	}
 
 	/**
@@ -60,7 +63,7 @@ public class Deck2 {
 	 */
 	public int size() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		return cards.size();
+		return size;
 	}
 
 	/**
@@ -78,15 +81,12 @@ public class Deck2 {
 	 */
 	public Card2 deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		if(cards.size()==0)
-				{
+		if (isEmpty()) {
 			return null;
-				}
-		else
-		{
-			
-			return cards.remove(cards.size()-1);
 		}
+		size--;
+		Card2 c = cards.get(size);
+		return c;
 	}
 
 	/**

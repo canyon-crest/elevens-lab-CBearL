@@ -14,10 +14,13 @@ public class DeckTester2 {
 		String[] suit1 = {"hearts","diamonds"};
 
 		int[] val1 = {13,12,1,11};
-		Deck2 newDeck = new Deck2(suit1, rank1, val1);
+		Deck2 newDeck = new Deck2(rank1, suit1, val1);
 		
 		System.out.println(newDeck);
-		System.out.println(newDeck.deal().toString());
+		System.out.println(newDeck.deal());
+
+		
+		System.out.println(newDeck);
 		System.out.println(newDeck.size());
 		System.out.println(newDeck.isEmpty());
 	}

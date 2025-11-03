@@ -75,6 +75,7 @@ public class Deck4 {
 			cards.set(i, temp);
 		}
 		
+
 			//values[i]=temp;
 		
 	}
