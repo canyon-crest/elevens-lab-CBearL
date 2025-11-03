@@ -69,9 +69,6 @@ public class Shuffler3 {
 		{
 			values[i]=newArr[i];
 		}
-		
-		
-	
 	}
 
 	/**
