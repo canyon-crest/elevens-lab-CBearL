@@ -10,7 +10,7 @@ public class ThirteensBoard10 extends Board10 {
 	/**
 	 * The size (number of cards) on the board.
 	 */
-	private static final int BOARD_SIZE = 9;
+	private static final int BOARD_SIZE = 10;
 
 	/**
 	 * The ranks of the cards for this game to be sent to the deck.
@@ -86,7 +86,7 @@ public class ThirteensBoard10 extends Board10 {
 	 *              contain an 11-pair; false otherwise.
 	 */
 	private boolean containsPairSum13(List<Integer> selectedCards) {
-		for (int sk1 = 0; sk1 < selectedCards.size(); sk1++) {
+		for (int sk1 = 0; sk1 < selectedCards.size()-1; sk1++) {
 			int k1 = selectedCards.get(sk1).intValue();
 			for (int sk2 = sk1 + 1; sk2 < selectedCards.size(); sk2++) {
 				int k2 = selectedCards.get(sk2).intValue();

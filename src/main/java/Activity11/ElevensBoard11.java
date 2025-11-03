@@ -10,7 +10,7 @@ public class ElevensBoard11 extends Board11 {
 	/**
 	 * The size (number of cards) on the board.
 	 */
-	private static final int BOARD_SIZE = 9;
+	private static final int BOARD_SIZE = 11;
 
 	/**
 	 * The ranks of the cards for this game to be sent to the deck.
@@ -113,18 +113,28 @@ public class ElevensBoard11 extends Board11 {
 		boolean foundJack = false;
 		boolean foundQueen = false;
 		boolean foundKing = false;
+		int one =0;
+		int two=0;
+		int three =0;
 		for (Integer kObj : selectedCards) {
 			int k = kObj.intValue();
 			if (cardAt(k).rank().equals("jack")) {
+				one =k;
 				foundJack = true;
-				index.add(k);
 			} else if (cardAt(k).rank().equals("queen")) {
 				foundQueen = true;
-				index.add(k);
+				two =k;
 			} else if (cardAt(k).rank().equals("king")) {
+				three =k;
 				foundKing = true;
-				index.add(k);
 			}
+		}
+		if(foundJack && foundQueen && foundKing)
+		{
+			index.add(one);
+			index.add(two);
+			index.add(three);
+			return index;
 		}
 		return index;
 	}
@@ -147,21 +157,29 @@ public class ElevensBoard11 extends Board11 {
 	private boolean playPairSum11IfPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 11 *** */
 	    List<Integer> indexes = cardIndexes();
-
-	    for (int i = 0; i < indexes.size(); i++) {
-	        for (int j = i + 1; j < indexes.size(); j++) {
-	            List<Integer> pair = new ArrayList<>();
-	            pair.add(indexes.get(i));
-	            pair.add(indexes.get(j));
-
-	            if (findPairSum11(pair).size()>0) {
-	                replaceSelectedCards(pair);
-	                return true;
-	            }
-	        }
+	    ArrayList<Integer> pair = findPairSum11(indexes);
+	    
+	    if(pair.size()==2)
+	    {
+	    	replaceSelectedCards(pair);
+	    	return true;
 	    }
-
 	    return false;
+
+//	    for (int i = 0; i < indexes.size(); i++) {
+//	        for (int j = i + 1; j < indexes.size(); j++) {
+//	            List<Integer> pair = new ArrayList<>();
+//	            pair.add(indexes.get(i));
+//	            pair.add(indexes.get(j));
+//
+//	            if (findPairSum11(pair).size()>0) {
+//	                replaceSelectedCards(pair);
+//	                return true;
+//	            }
+//	        }
+//	    }
+//
+//	    return false;
 
 	}
 
@@ -175,23 +193,30 @@ public class ElevensBoard11 extends Board11 {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 11 *** */
 		   List<Integer> indexes = cardIndexes();
 
-		    for (int i = 0; i < indexes.size(); i++) {
-		        for (int j = i + 1; j < indexes.size(); j++) {
-		            for (int k = j + 1; k < indexes.size(); k++) {
-		                List<Integer> trio = new ArrayList<>();
-		                trio.add(indexes.get(i));
-		                trio.add(indexes.get(j));
-		                trio.add(indexes.get(k));
-
-		                if (findJQK(trio).size()>0) {
-		                    replaceSelectedCards(trio);
-		                    return true;
-		                }
-		            }
-		        }
-		    }
-
-		    return false;
+		   ArrayList<Integer> trio = findJQK(indexes);
+		   if(trio.size()==3)
+		   {
+			   replaceSelectedCards(trio);
+			   return true;
+		   }
+		   return false;
+//		    for (int i = 0; i < indexes.size(); i++) {
+//		        for (int j = i + 1; j < indexes.size(); j++) {
+//		            for (int k = j + 1; k < indexes.size(); k++) {
+//		                List<Integer> trio = new ArrayList<>();
+//		                trio.add(indexes.get(i));
+//		                trio.add(indexes.get(j));
+//		                trio.add(indexes.get(k));
+//
+//		                if (findJQK(trio).size()>0) {
+//		                    replaceSelectedCards(trio);
+//		                    return true;
+//		                }
+//		            }
+//		        }
+//		    }
+//
+//		    return false;
 
 	}
 }
